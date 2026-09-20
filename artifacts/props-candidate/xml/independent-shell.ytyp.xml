@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CMapTypes>
+ <extensions />
+ <archetypes>
+  <Item type="CBaseArchetypeDef">
+   <lodDist value="120" />
+   <flags value="537002016" />
+   <specialAttribute value="0" />
+   <bbMin x="-2.317" y="-3.487" z="0.12" />
+   <bbMax x="2.317" y="3.487" z="3.27" />
+   <bsCentre x="0" y="0" z="1.6949999" />
+   <bsRadius value="4.473062" />
+   <hdTextureDist value="5" />
+   <name>hash_64F60A2E</name>
+   <textureDictionary>hash_96FE243B</textureDictionary>
+   <clipDictionary />
+   <drawableDictionary />
+   <physicsDictionary />
+   <assetType>ASSET_TYPE_DRAWABLE</assetType>
+   <assetName>hash_64F60A2E</assetName>
+   <extensions />
+  </Item>
+ </archetypes>
+ <name>hash_64F60A2E</name>
+ <dependencies />
+ <compositeEntityTypes itemType="CCompositeEntityType" />
+</CMapTypes>

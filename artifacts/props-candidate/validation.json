@@ -1,0 +1,433 @@
+{
+  "generatedAtUtc": "2026-09-20T21:22:56.2218845Z",
+  "status": "structural_validation_passed",
+  "runtimeValidation": "NOT RUN: FiveM collision, tint and DUI visual smoke tests required",
+  "type": "standalone static props; not an MLO, no rooms, portals, YMAP, YMF or external YBN needed",
+  "reference": {
+    "textureDictionary": "D:/qbox_new/txData/QboxProject_C63A32.base/resources/[alphabets]/glowglyphs\\stream/glowglyphs_txd_v4.ytd",
+    "sha256": "5686017bef6b2ab7d234896ca2e6dccf1cfbb138a53100e8a5783745e1c28033",
+    "pattern": "emissive_tnt.sps \u002B 256x16 uncompressed TINTPALETTE, X64 | UNK24, zero mipmaps"
+  },
+  "palette": [
+    [
+      255,
+      255,
+      255,
+      255
+    ],
+    [
+      255,
+      32,
+      32,
+      255
+    ],
+    [
+      255,
+      112,
+      24,
+      255
+    ],
+    [
+      255,
+      224,
+      32,
+      255
+    ],
+    [
+      128,
+      255,
+      32,
+      255
+    ],
+    [
+      32,
+      255,
+      72,
+      255
+    ],
+    [
+      24,
+      255,
+      176,
+      255
+    ],
+    [
+      24,
+      240,
+      255,
+      255
+    ],
+    [
+      64,
+      176,
+      255,
+      255
+    ],
+    [
+      48,
+      72,
+      255,
+      255
+    ],
+    [
+      144,
+      48,
+      255,
+      255
+    ],
+    [
+      240,
+      32,
+      255,
+      255
+    ],
+    [
+      255,
+      48,
+      144,
+      255
+    ],
+    [
+      255,
+      214,
+      170,
+      255
+    ],
+    [
+      190,
+      220,
+      255,
+      255
+    ],
+    [
+      8,
+      8,
+      12,
+      255
+    ]
+  ],
+  "screenPlanes": {
+    "tablet": {
+      "centre": [
+        0,
+        -0.081,
+        1.39
+      ],
+      "normal": [
+        0,
+        -1,
+        0
+      ],
+      "width": 0.56,
+      "height": 0.84
+    },
+    "booth": {
+      "centre": [
+        0.645,
+        -0.326,
+        1.35
+      ],
+      "normal": [
+        0,
+        -1,
+        0
+      ],
+      "width": 0.42,
+      "height": 0.63
+    }
+  },
+  "platform": {
+    "groundOrigin": [
+      0,
+      0,
+      0
+    ],
+    "deckHeight": 0.13,
+    "roofUnderside": 3.23,
+    "clearInnerWidth": 4.04,
+    "clearInnerLength": 5.94,
+    "vehicleSpawnHeightOffset": 0.2
+  },
+  "animation": {
+    "deck": "snipe_capsule_deck_v2",
+    "canopy": "snipe_capsule_canopy_v2",
+    "shell": "snipe_capsule_shell_v2",
+    "raisedOffsetZ": 0,
+    "retractedOffsetZ": -3.5,
+    "movingPartsCollision": false,
+    "deckCollision": true
+  },
+  "models": [
+    {
+      "name": "snipe_capsule_platform_v1",
+      "vertices": 6744,
+      "triangles": 2248,
+      "boundsMin": [
+        -2.3825,
+        -3.6825,
+        0
+      ],
+      "boundsMax": [
+        2.3825,
+        3.6825,
+        3.411
+      ],
+      "collision": "Composite \u003E GeometryBVH, double-sided triangles, root-bone attached",
+      "shaders": [
+        "default",
+        "emissive_tnt",
+        "default",
+        "default"
+      ],
+      "tintSamplers": 1,
+      "screenVertices": 0,
+      "screenTexture": null,
+      "paletteFormat": "D3DFMT_A8R8G8B8",
+      "paletteLevels": 1,
+      "paletteUsageFlags": "X64, UNK24",
+      "ydrBytes": 91246,
+      "ydrSha256": "f4e7509e35bf8fc621e499a4ae13eef45b98ecc4894232d77743170351905193",
+      "ytypBytes": 489,
+      "checks": [
+        "Gen8 binary parse",
+        "YDR serialize/reload",
+        "nonempty render geometries",
+        "valid shader indices",
+        "all texture samplers resolve",
+        "tint palette binding",
+        "collision policy checked",
+        "single root skeleton",
+        "archetype hash",
+        "YTYP asset/physics/texture links",
+        "screen UV 0..1",
+        "YTD reload"
+      ]
+    },
+    {
+      "name": "snipe_capsule_deck_v2",
+      "vertices": 2376,
+      "triangles": 792,
+      "boundsMin": [
+        -2.38,
+        -3.68,
+        0
+      ],
+      "boundsMax": [
+        2.38,
+        3.68,
+        0.152
+      ],
+      "collision": "Composite \u003E GeometryBVH, double-sided triangles, root-bone attached",
+      "shaders": [
+        "default",
+        "emissive_tnt",
+        "default",
+        "default"
+      ],
+      "tintSamplers": 1,
+      "screenVertices": 0,
+      "screenTexture": null,
+      "paletteFormat": "D3DFMT_A8R8G8B8",
+      "paletteLevels": 1,
+      "paletteUsageFlags": "X64, UNK24",
+      "ydrBytes": 32652,
+      "ydrSha256": "f1f3f5335ee207dc69051707b21160ef615c9d56c8e5987b04f3b019bdec77ce",
+      "ytypBytes": 489,
+      "checks": [
+        "Gen8 binary parse",
+        "YDR serialize/reload",
+        "nonempty render geometries",
+        "valid shader indices",
+        "all texture samplers resolve",
+        "tint palette binding",
+        "collision policy checked",
+        "single root skeleton",
+        "archetype hash",
+        "YTYP asset/physics/texture links",
+        "screen UV 0..1",
+        "YTD reload"
+      ]
+    },
+    {
+      "name": "snipe_capsule_canopy_v2",
+      "vertices": 4368,
+      "triangles": 1456,
+      "boundsMin": [
+        -2.3825,
+        -3.6825,
+        0.13
+      ],
+      "boundsMax": [
+        2.3825,
+        3.6825,
+        3.411
+      ],
+      "collision": "none: moving visual part; physicsDictionary=0",
+      "shaders": [
+        "default",
+        "default",
+        "emissive_tnt",
+        "default"
+      ],
+      "tintSamplers": 1,
+      "screenVertices": 0,
+      "screenTexture": null,
+      "paletteFormat": "D3DFMT_A8R8G8B8",
+      "paletteLevels": 1,
+      "paletteUsageFlags": "X64, UNK24",
+      "ydrBytes": 24280,
+      "ydrSha256": "33b5b2453a8a69436369d3f4e84a960de07707065c617b15d77dd1fc9f8398ef",
+      "ytypBytes": 493,
+      "checks": [
+        "Gen8 binary parse",
+        "YDR serialize/reload",
+        "nonempty render geometries",
+        "valid shader indices",
+        "all texture samplers resolve",
+        "tint palette binding",
+        "collision policy checked",
+        "single root skeleton",
+        "archetype hash",
+        "YTYP asset/physics/texture links",
+        "screen UV 0..1",
+        "YTD reload"
+      ]
+    },
+    {
+      "name": "snipe_capsule_shell_v2",
+      "vertices": 1008,
+      "triangles": 336,
+      "boundsMin": [
+        -2.317,
+        -3.487,
+        0.12
+      ],
+      "boundsMax": [
+        2.317,
+        3.487,
+        3.27
+      ],
+      "collision": "none: moving visual part; physicsDictionary=0",
+      "shaders": [
+        "default",
+        "emissive_tnt",
+        "default"
+      ],
+      "tintSamplers": 1,
+      "screenVertices": 0,
+      "screenTexture": null,
+      "paletteFormat": "D3DFMT_A8R8G8B8",
+      "paletteLevels": 1,
+      "paletteUsageFlags": "X64, UNK24",
+      "ydrBytes": 6245,
+      "ydrSha256": "8d4dca43403d100dbba91ef35797877cf9c9b41d96f5bea6dad3e73928d320f2",
+      "ytypBytes": 491,
+      "checks": [
+        "Gen8 binary parse",
+        "YDR serialize/reload",
+        "nonempty render geometries",
+        "valid shader indices",
+        "all texture samplers resolve",
+        "tint palette binding",
+        "collision policy checked",
+        "single root skeleton",
+        "archetype hash",
+        "YTYP asset/physics/texture links",
+        "screen UV 0..1",
+        "YTD reload"
+      ]
+    },
+    {
+      "name": "snipe_capsule_tablet_v1",
+      "vertices": 1192,
+      "triangles": 398,
+      "boundsMin": [
+        -0.34,
+        -0.23,
+        0
+      ],
+      "boundsMax": [
+        0.34,
+        0.23,
+        1.89
+      ],
+      "collision": "Composite \u003E GeometryBVH, double-sided triangles, root-bone attached",
+      "shaders": [
+        "default",
+        "default",
+        "emissive",
+        "emissive_tnt"
+      ],
+      "tintSamplers": 1,
+      "screenVertices": 4,
+      "screenTexture": "snipe_capsule_screen_d",
+      "paletteFormat": "D3DFMT_A8R8G8B8",
+      "paletteLevels": 1,
+      "paletteUsageFlags": "X64, UNK24",
+      "ydrBytes": 17918,
+      "ydrSha256": "be185cb55d3fc13d4f30fc67271b6bfbc7eea89d495fa6a95472104496aa0ab5",
+      "ytypBytes": 488,
+      "checks": [
+        "Gen8 binary parse",
+        "YDR serialize/reload",
+        "nonempty render geometries",
+        "valid shader indices",
+        "all texture samplers resolve",
+        "tint palette binding",
+        "collision policy checked",
+        "single root skeleton",
+        "archetype hash",
+        "YTYP asset/physics/texture links",
+        "screen UV 0..1",
+        "YTD reload"
+      ]
+    },
+    {
+      "name": "snipe_capsule_booth_v1",
+      "vertices": 8644,
+      "triangles": 2882,
+      "boundsMin": [
+        -0.925,
+        -0.35,
+        0
+      ],
+      "boundsMax": [
+        0.925,
+        0.35,
+        2.145
+      ],
+      "collision": "Composite \u003E GeometryBVH, double-sided triangles, root-bone attached",
+      "shaders": [
+        "default",
+        "default",
+        "emissive_tnt",
+        "default",
+        "4035389908",
+        "emissive"
+      ],
+      "tintSamplers": 1,
+      "screenVertices": 4,
+      "screenTexture": "snipe_capsule_screen_d",
+      "paletteFormat": "D3DFMT_A8R8G8B8",
+      "paletteLevels": 1,
+      "paletteUsageFlags": "X64, UNK24",
+      "ydrBytes": 136690,
+      "ydrSha256": "3af6411d711bdb63e5689c109812a0dd71d6c74455ee7c6963e9734a7913b8b8",
+      "ytypBytes": 490,
+      "checks": [
+        "Gen8 binary parse",
+        "YDR serialize/reload",
+        "nonempty render geometries",
+        "valid shader indices",
+        "all texture samplers resolve",
+        "tint palette binding",
+        "collision policy checked",
+        "single root skeleton",
+        "archetype hash",
+        "YTYP asset/physics/texture links",
+        "screen UV 0..1",
+        "YTD reload"
+      ]
+    }
+  ]
+}

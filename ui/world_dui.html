@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Capsule rental terminal</title>
+    <link rel="stylesheet" href="world_dui.css?v=2">
+</head>
+<body>
+    <main id="screen">
+        <header>
+            <div class="brand"><b>SNIPE</b><span>CAPSULE RENTAL</span></div>
+            <button id="close" type="button" aria-label="Close rental menu" hidden>×</button>
+        </header>
+
+        <section id="summary" class="summary">
+            <div class="intro"><small>GET MOVING</small><h1>Find your ride.</h1><p>A low key. A fresh set of keys.</p></div>
+            <div class="hero">
+                <div><small>AVAILABLE NOW</small><strong id="summary-count">0 VEHICLES</strong></div>
+                <img src="assets/car-silhouette.svg" alt="Rental car">
+            </div>
+            <div class="station-card"><span id="summary-station">CAPSULE STATION</span><b>PRESS E TO BROWSE</b></div>
+        </section>
+
+        <section id="rental" class="rental" hidden>
+            <div class="rental-title"><small id="rental-station">VEHICLE RENTAL</small><h1>Choose your ride.</h1></div>
+            <article class="vehicle-card">
+                <div class="vehicle-copy"><small>SELECTED VEHICLE</small><h2 id="vehicle-name">Vehicle</h2><span id="vehicle-model">MODEL</span></div>
+                <img src="assets/car-silhouette.svg" alt="Selected rental vehicle">
+                <div class="price"><small>PRICE</small><strong id="vehicle-price">$0</strong></div>
+            </article>
+            <div class="selector">
+                <button id="previous" type="button" aria-label="Previous vehicle">‹</button>
+                <div><b id="vehicle-position">1 / 1</b><span>AVAILABLE VEHICLES</span></div>
+                <button id="next" type="button" aria-label="Next vehicle">›</button>
+            </div>
+            <fieldset>
+                <legend>PAYMENT METHOD</legend>
+                <div class="payments">
+                    <button class="payment selected" data-payment="cash" type="button">CASH</button>
+                    <button class="payment" data-payment="bank" type="button">BANK CARD</button>
+                </div>
+            </fieldset>
+            <div class="checkout"><span>TOTAL DUE</span><strong id="total">$0</strong></div>
+            <button id="rent" class="rent" type="button">RENT VEHICLE <span>→</span></button>
+            <p class="hint">The capsule prepares the vehicle automatically. Stand clear of the platform.</p>
+        </section>
+
+        <div id="toast" class="toast" hidden></div>
+        <footer><span>ONE SIMPLE PRICE</span><span>CASH · BANK</span></footer>
+    </main>
+    <script src="world_dui.js?v=2"></script>
+</body>
+</html>

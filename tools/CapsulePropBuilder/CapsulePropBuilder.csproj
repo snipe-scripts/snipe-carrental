@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PropBuilderSource Condition="'$(PropBuilderSource)' == ''">D:/tools/ytd-extractor/src/PropBuilder</PropBuilderSource>
+    <PropBuilderBin>$(PropBuilderSource)/bin/Release/net8.0-windows</PropBuilderBin>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(PropBuilderSource)/DrawableBuilder.cs" Link="Reference/DrawableBuilder.cs" />
+    <Compile Include="$(PropBuilderSource)/YtdBuilder.cs" Link="Reference/YtdBuilder.cs" />
+    <Compile Include="$(PropBuilderSource)/YtypBuilder.cs" Link="Reference/YtypBuilder.cs" />
+    <Reference Include="CodeWalker.Core"><HintPath>$(PropBuilderBin)/CodeWalker.Core.dll</HintPath></Reference>
+    <Reference Include="SharpDX"><HintPath>$(PropBuilderBin)/SharpDX.dll</HintPath></Reference>
+    <Reference Include="SharpDX.Mathematics"><HintPath>$(PropBuilderBin)/SharpDX.Mathematics.dll</HintPath></Reference>
+    <Reference Include="Magick.NET.Core"><HintPath>$(PropBuilderBin)/Magick.NET.Core.dll</HintPath></Reference>
+    <Reference Include="Magick.NET-Q8-AnyCPU"><HintPath>$(PropBuilderBin)/Magick.NET-Q8-AnyCPU.dll</HintPath></Reference>
+    <None Include="$(PropBuilderBin)/runtimes/win-x64/native/Magick.Native-Q8-x64.dll" Link="Magick.Native-Q8-x64.dll" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

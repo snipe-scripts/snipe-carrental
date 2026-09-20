@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en" class="nui-loading">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Capsule Rental</title>
+    <link rel="stylesheet" href="style.css?v=7">
+</head>
+<body>
+    <aside id="creator" class="creator" hidden aria-label="Rental station setup">
+        <header class="creator-header">
+            <div>
+                <span class="eyebrow">SNIPE OPERATIONS</span>
+                <h1>Rental station</h1>
+                <p>Place the hardware, add vehicles, then save.</p>
+            </div>
+            <button class="icon-button" type="button" data-close aria-label="Close">×</button>
+        </header>
+
+        <div class="location-bar">
+            <select id="station-picker" aria-label="Saved rental location"><option value="">New station</option></select>
+            <button type="button" data-load-station>OPEN</button>
+            <button type="button" data-new>NEW</button>
+        </div>
+        <div class="location-meta"><span id="station-meta">Unsaved station</span><span id="station-count">0 SAVED</span></div>
+
+        <nav class="steps" aria-label="Station setup steps">
+            <button class="active" type="button" data-step="1"><span>1</span>Details</button>
+            <button type="button" data-step="2"><span>2</span>Placement</button>
+            <button type="button" data-step="3"><span>3</span>Vehicles</button>
+        </nav>
+
+        <div class="creator-body">
+            <section class="step-panel active" data-panel="1">
+                <h2>Station details</h2>
+                <p class="section-copy">Name the location. Every station uses the freestanding rental tablet.</p>
+                <label>STATION NAME<input id="station-name" maxlength="80" placeholder="Downtown Rentals"></label>
+                <label>RENTAL TERMINAL
+                    <input id="station-variant" type="hidden" value="tablet">
+                    <span class="fixed-choice">Freestanding tablet</span>
+                </label>
+                <label>ACCENT COLOUR</label>
+                <div class="swatches" role="radiogroup" aria-label="Accent colour">
+                    <button class="selected" style="--swatch:#17d7c4" data-color="#17d7c4" aria-label="Teal"></button>
+                    <button style="--swatch:#e44436" data-color="#e44436" aria-label="Red"></button>
+                    <button style="--swatch:#d6b817" data-color="#d6b817" aria-label="Gold"></button>
+                    <button style="--swatch:#477bea" data-color="#477bea" aria-label="Blue"></button>
+                    <button style="--swatch:#bd4fb1" data-color="#bd4fb1" aria-label="Purple"></button>
+                    <input id="strip-color" type="color" value="#17d7c4" aria-label="Custom colour">
+                </div>
+                <button class="next-button" type="button" data-next="2">CONTINUE TO PLACEMENT <span>→</span></button>
+            </section>
+
+            <section class="step-panel" data-panel="2">
+                <h2>Place both pieces</h2>
+                <p class="section-copy">Each button switches back to the game. Aim, rotate and press Enter to confirm. Press F7 to return here.</p>
+                <article class="placement-card">
+                    <div><span class="step-number">01</span><strong>Capsule platform</strong><small>The car delivery deck and animated enclosure.</small></div>
+                    <span id="platform-status" class="status">NOT PLACED</span>
+                    <button type="button" data-place-platform>PLACE PLATFORM</button>
+                </article>
+                <article class="placement-card">
+                    <div><span class="step-number">02</span><strong>Rental tablet</strong><small>The standing tablet customers approach and use.</small></div>
+                    <span id="terminal-status" class="status">NOT PLACED</span>
+                    <button type="button" data-place-booth>PLACE TERMINAL</button>
+                </article>
+                <button class="next-button" type="button" data-next="3">CONTINUE TO VEHICLES <span>→</span></button>
+            </section>
+
+            <section class="step-panel" data-panel="3">
+                <div class="section-heading">
+                    <div><h2>Rental vehicles</h2><p class="section-copy">Every vehicle has one price. There are no customer duration tiers.</p></div>
+                    <button type="button" data-capture>CAPTURE CAR ON PLATFORM</button>
+                </div>
+                <div class="vehicle-editor">
+                    <div class="field-row">
+                        <label>MODEL<input id="catalog-model" maxlength="64" placeholder="sultan"></label>
+                        <label>DISPLAY NAME<input id="catalog-label" maxlength="64" placeholder="Sultan"></label>
+                    </div>
+                    <label>RENTAL PRICE<input id="catalog-price" type="number" min="1" step="1" value="250"></label>
+                    <div class="catalog-actions">
+                        <button class="primary-small" type="button" data-save-vehicle>ADD VEHICLE</button>
+                        <button type="button" data-clear-vehicle>CLEAR</button>
+                    </div>
+                </div>
+                <div id="creator-vehicles" class="creator-vehicles"><p>No vehicles added yet.</p></div>
+            </section>
+        </div>
+
+        <footer class="creator-footer">
+            <span id="save-summary">Complete the placement to save.</span>
+            <button class="save" type="button" data-save>SAVE STATION</button>
+        </footer>
+    </aside>
+
+    <main id="rental" class="rental-shell" hidden aria-label="Vehicle rental">
+        <div class="rental-screen">
+            <header class="rental-header">
+                <div><span class="eyebrow">SNIPE CAPSULE RENTAL</span><strong id="rental-station-name">Vehicle rental</strong></div>
+                <button class="icon-button" type="button" data-close aria-label="Close">×</button>
+            </header>
+            <div class="rental-content">
+                <article class="vehicle-stage">
+                    <div><small>SELECTED VEHICLE</small><h2 id="vehicle-name">Sultan</h2><span id="vehicle-class">VEHICLE</span></div>
+                    <img src="assets/car-silhouette.svg" alt="Selected rental vehicle">
+                    <div class="vehicle-rate"><small>PRICE</small><strong id="vehicle-rate">$250</strong></div>
+                </article>
+                <div id="vehicle-list" class="vehicle-list" aria-label="Available vehicles"></div>
+                <fieldset>
+                    <legend>PAYMENT METHOD</legend>
+                    <div class="payment-row">
+                        <button class="choice selected" data-payment="cash" type="button">CASH</button>
+                        <button class="choice" data-payment="bank" type="button">BANK CARD</button>
+                    </div>
+                </fieldset>
+                <div class="checkout">
+                    <div><small>TOTAL DUE</small><strong id="total-due">$250</strong></div>
+                    <button id="rent-button" class="rent-button" type="button">RENT VEHICLE <span>→</span></button>
+                    <p>The capsule prepares the vehicle before it opens. Stand clear of the platform.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="toast" class="toast" hidden></div>
+    <script src="app.js?v=8"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+:root {
+    font-family: Bahnschrift, "DIN Alternate", "Segoe UI", sans-serif;
+    --accent: #17d7c4;
+    --surface: #131d1b;
+    --line: rgba(190, 220, 214, .16);
+    --text: #e7efed;
+    --muted: #7f8d8a;
+}
+
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #0c1211; color: var(--text); }
+button { font: inherit; }
+[hidden] { display: none !important; }
+
+#screen { position: relative; display: grid; grid-template-rows: 82px 1fr 46px; width: 100%; height: 100%; overflow: hidden; border: 6px solid #202827; background: #0e1514; }
+header { display: flex; align-items: center; justify-content: space-between; padding: 0 30px; border-bottom: 1px solid var(--line); }
+.brand { display: flex; align-items: baseline; gap: 15px; }
+.brand b { font-size: 25px; letter-spacing: -1px; }
+.brand span { color: var(--muted); font-size: 9px; letter-spacing: 2px; }
+#close { width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 4px; background: #141d1c; color: var(--muted); cursor: pointer; font-size: 26px; line-height: 1; }
+#close:hover { border-color: var(--accent); color: var(--text); }
+
+.summary { padding: 46px 38px 28px; }
+.intro small, .rental-title small { color: var(--accent); font-size: 10px; letter-spacing: 1.5px; }
+h1 { margin: 7px 0 0; font-size: 48px; line-height: 1; letter-spacing: -2.5px; }
+.intro p { margin: 10px 0 34px; color: var(--muted); font-size: 16px; }
+.hero { position: relative; height: 375px; overflow: hidden; border: 1px solid var(--line); background: var(--surface); }
+.hero > div { position: absolute; top: 27px; left: 27px; z-index: 2; }
+.hero small, .vehicle-card small, .price small { display: block; color: var(--muted); font-size: 9px; letter-spacing: 1px; }
+.hero strong { display: block; margin-top: 7px; font-size: 19px; }
+.hero img { display: block; width: 91%; height: 275px; margin: 92px auto 0; object-fit: contain; filter: drop-shadow(0 20px 18px rgba(0,0,0,.35)); }
+.station-card { display: flex; justify-content: space-between; align-items: center; min-height: 68px; margin-top: 14px; padding: 0 21px; border: 1px solid var(--accent); background: rgba(23, 215, 196, .08); }
+.station-card span { max-width: 58%; overflow: hidden; color: var(--muted); font-size: 10px; letter-spacing: .8px; text-overflow: ellipsis; white-space: nowrap; }
+.station-card b { color: var(--accent); font-size: 12px; letter-spacing: .8px; }
+
+.rental { min-height: 0; padding: 27px 32px 20px; }
+.rental-title { margin-bottom: 20px; }
+.rental-title h1 { font-size: 39px; }
+.vehicle-card { position: relative; height: 300px; overflow: hidden; border: 1px solid var(--line); background: var(--surface); }
+.vehicle-copy { position: absolute; top: 23px; left: 24px; z-index: 2; max-width: 68%; }
+.vehicle-copy h2 { margin: 5px 0 2px; overflow: hidden; font-size: 31px; letter-spacing: -1px; text-overflow: ellipsis; white-space: nowrap; }
+.vehicle-copy span { color: #71807d; font-size: 10px; letter-spacing: .8px; }
+.vehicle-card img { display: block; width: 88%; height: 205px; margin: 78px auto 0; object-fit: contain; filter: drop-shadow(0 18px 14px rgba(0,0,0,.38)); }
+.price { position: absolute; right: 23px; bottom: 21px; text-align: right; }
+.price strong { display: block; margin-top: 3px; color: var(--accent); font-size: 28px; }
+.selector { display: grid; grid-template-columns: 62px 1fr 62px; gap: 9px; height: 66px; margin: 11px 0 20px; }
+.selector button { border: 1px solid var(--line); border-radius: 3px; background: var(--surface); color: var(--text); cursor: pointer; font-size: 36px; }
+.selector button:hover { border-color: var(--accent); color: var(--accent); }
+.selector div { display: grid; place-content: center; border: 1px solid var(--line); text-align: center; }
+.selector b { font-size: 14px; }
+.selector span { margin-top: 3px; color: var(--muted); font-size: 8px; letter-spacing: 1px; }
+fieldset { margin: 0 0 17px; padding: 0; border: 0; }
+legend { margin-bottom: 9px; color: var(--muted); font-size: 9px; letter-spacing: 1px; }
+.payments { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+.payment { height: 48px; border: 1px solid var(--line); border-radius: 3px; background: var(--surface); color: var(--muted); cursor: pointer; font-size: 11px; }
+.payment.selected, .payment:hover { border-color: var(--accent); background: rgba(23, 215, 196, .08); color: var(--text); }
+.checkout { display: flex; align-items: end; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--line); }
+.checkout span { color: var(--muted); font-size: 9px; letter-spacing: 1px; }
+.checkout strong { font-size: 31px; }
+.rent { display: flex; align-items: center; justify-content: space-between; width: 100%; height: 58px; margin-top: 14px; padding: 0 21px; border: 0; border-radius: 3px; background: var(--accent); color: #071311; cursor: pointer; font-size: 13px; font-weight: 800; letter-spacing: .5px; }
+.rent:disabled { cursor: wait; filter: saturate(.25); }
+.rent span { font-size: 23px; }
+.hint { margin: 10px 14px 0; color: #687572; font-size: 9px; line-height: 1.35; text-align: center; }
+
+.toast { position: absolute; right: 25px; bottom: 62px; left: 25px; z-index: 10; padding: 15px 17px; border: 1px solid var(--line); border-left: 4px solid var(--accent); background: #111918; box-shadow: 0 10px 28px rgba(0,0,0,.45); color: var(--text); font-size: 12px; }
+footer { display: flex; justify-content: space-between; align-items: center; padding: 0 28px; border-top: 1px solid var(--line); color: #61706d; font-size: 8px; letter-spacing: .8px; }
+
+html.preview body { display: grid; place-items: center; background: #252b2a; }
+html.preview #screen { width: 640px; height: 960px; transform: scale(.7); }

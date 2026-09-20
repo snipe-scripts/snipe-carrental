@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" role="img" aria-label="Blue sports sedan">
+  <defs>
+    <linearGradient id="paint" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#263d55"/>
+      <stop offset=".5" stop-color="#1781a0"/>
+      <stop offset="1" stop-color="#102a38"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="450" cy="254" rx="345" ry="28" fill="#050808" opacity=".65"/>
+  <path d="M94 203c12-44 34-70 79-78l139-22 82-64h189c47 4 91 37 127 75l94 24c26 7 38 26 34 65l-38 18H126z" fill="url(#paint)" stroke="#53b4ca" stroke-width="4"/>
+  <path d="M335 102l69-48h164c33 5 62 27 91 56z" fill="#0c171d" stroke="#528392" stroke-width="3"/>
+  <path d="M421 56v51M566 56l70 53" stroke="#557580" stroke-width="3"/>
+  <path d="M103 191h710M175 128l42 65M706 118l-26 80" stroke="#76cad8" opacity=".5" stroke-width="3"/>
+  <circle cx="241" cy="211" r="55" fill="#090d0f" stroke="#273136" stroke-width="12"/>
+  <circle cx="241" cy="211" r="26" fill="#68757a"/>
+  <circle cx="673" cy="211" r="55" fill="#090d0f" stroke="#273136" stroke-width="12"/>
+  <circle cx="673" cy="211" r="26" fill="#68757a"/>
+  <path d="M106 181h76l-17-34-56 12zM785 160h37l11 34h-56z" fill="#d9edf0" opacity=".85"/>
+</svg>
