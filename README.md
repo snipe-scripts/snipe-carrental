@@ -33,7 +33,7 @@ Use `/rentalcreator` or the default `F7` key mapping to open the station creator
 
 The creator lists every saved rental location, and `F7` automatically selects the nearest location within 20 metres. Its three steps cover station details, placement, and vehicles. Each catalog vehicle has one flat price and can be typed by model or captured from the platform; station IDs do not need to be looked up in SQL.
 
-World placement deliberately releases NUI focus. Press Enter to confirm a terminal or platform, inspect the persistent translucent draft in the world, then press `F7` to continue editing. Saving the complete station closes the creator and replaces the draft with the SQL-backed world props.
+World placement deliberately releases NUI focus. Press `E` to confirm a terminal or platform, inspect the persistent translucent draft in the world, then press `F7` to continue editing. Saving the complete station closes the creator and replaces the draft with the SQL-backed world props.
 
 ## Flow
 

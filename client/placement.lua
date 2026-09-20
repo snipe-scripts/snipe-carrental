@@ -52,7 +52,7 @@ function RentalPlacement.start(kind, station, onComplete)
     local state = { station = value, field = field, callback = onComplete, heading = value[field].w or value[field].heading or 0, elevation = 0 }
     active = state
     local token = generation
-    lib.showTextUI('[Enter] Place  ·  [Esc] Cancel  ·  [← / →] Rotate  ·  [↑ / ↓] Height', { position = 'top-center' })
+    lib.showTextUI('[E] Place  ·  [Esc] Cancel  ·  [← / →] Rotate  ·  [↑ / ↓] Height', { position = 'top-center' })
     CreateThread(function()
         state.assembly = RentalWorld.create(value, true)
         if active ~= state or token ~= generation then RentalWorld.destroy(state.assembly) return end
@@ -75,6 +75,7 @@ function RentalPlacement.start(kind, station, onComplete)
             DisableControlAction(0, 200, true)
             DisableControlAction(0, 201, true)
             DisableControlAction(0, 202, true)
+            DisableControlAction(0, 38, true)
             DisableControlAction(0, 174, true)
             DisableControlAction(0, 175, true)
             DisableControlAction(0, 172, true)
@@ -91,7 +92,7 @@ function RentalPlacement.start(kind, station, onComplete)
             RentalWorld.draw(value, true)
             DrawMarker(28, point.x, point.y, point.z + state.elevation + 0.1, 0, 0, 0, 0, 0, 0,
                 0.08, 0.08, 0.08, 0, 215, 200, 210, false, false, 2, false, nil, nil, false)
-            if IsDisabledControlJustPressed(0, 201) then
+            if IsDisabledControlJustPressed(0, 38) then
                 active = nil
                 lib.hideTextUI()
                 if onComplete then onComplete(value, state.assembly) end
