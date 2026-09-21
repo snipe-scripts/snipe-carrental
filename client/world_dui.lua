@@ -4,6 +4,7 @@ local duiObject = nil
 local runtimeTxd = nil
 local runtimeTexture = nil
 local replacementBound = false
+local sourceTextureLoaded = false
 local stations = {}
 local nearestStationId = nil
 local nearestStation = nil
@@ -32,9 +33,49 @@ local function stationPosition(station)
     return vector3(number(value.x), number(value.y), number(value.z))
 end
 
+local function ensureSourceTexture()
+    if HasStreamedTextureDictLoaded(CapsuleDuiConfig.textureDictionary) then
+        sourceTextureLoaded = true
+        return true
+    end
+
+    RequestStreamedTextureDict(CapsuleDuiConfig.textureDictionary, false)
+    local timeoutAt = GetGameTimer() + 5000
+    while not HasStreamedTextureDictLoaded(CapsuleDuiConfig.textureDictionary) and GetGameTimer() < timeoutAt do
+        Wait(0)
+    end
+    sourceTextureLoaded = HasStreamedTextureDictLoaded(CapsuleDuiConfig.textureDictionary)
+    return sourceTextureLoaded
+end
+
+local function bindReplacement(force)
+    if not sourceTextureLoaded or not duiObject or not IsDuiAvailable(duiObject) or not runtimeTexture then
+        return false
+    end
+    if force and replacementBound then
+        RemoveReplaceTexture(CapsuleDuiConfig.textureDictionary, CapsuleDuiConfig.textureName)
+        replacementBound = false
+    end
+    AddReplaceTexture(
+        CapsuleDuiConfig.textureDictionary,
+        CapsuleDuiConfig.textureName,
+        runtimeDictionary,
+        runtimeTextureName
+    )
+    replacementBound = true
+    return true
+end
+
 local function ensureDui()
     if duiObject and IsDuiAvailable(duiObject) and replacementBound then return true end
     if GetGameTimer() < nextDuiRetry then return false end
+
+    -- AddReplaceTexture silently fails when the source YTD has not streamed yet.
+    -- Explicitly retain it so first player load behaves the same as a resource restart.
+    if not ensureSourceTexture() then
+        nextDuiRetry = GetGameTimer() + CapsuleDuiConfig.retryDelay
+        return false
+    end
 
     if duiObject then DestroyDui(duiObject) end
     duiObject, runtimeTxd, runtimeTexture = nil, nil, nil
@@ -65,14 +106,7 @@ local function ensureDui()
         return false
     end
 
-    AddReplaceTexture(
-        CapsuleDuiConfig.textureDictionary,
-        CapsuleDuiConfig.textureName,
-        runtimeDictionary,
-        runtimeTextureName
-    )
-    replacementBound = true
-    return true
+    return bindReplacement(false)
 end
 
 local function sendStation(station, action)
@@ -298,6 +332,19 @@ function CapsuleDui.IsOpen()
     return interacting
 end
 
+-- Re-apply the global texture replacement after a tablet entity is created.
+-- This covers model streaming transitions without recreating the DUI browser.
+function CapsuleDui.TerminalReady()
+    if stopped then return false end
+    CreateThread(function()
+        -- Give the newly created drawable one frame to finish registering its
+        -- material, then bind again without rebuilding the DUI page.
+        Wait(0)
+        if not stopped and sourceTextureLoaded then bindReplacement(true) end
+    end)
+    return true
+end
+
 function CapsuleDui.Destroy()
     stopped = true
     if interacting then CapsuleDui.CloseRental() end
@@ -308,6 +355,10 @@ function CapsuleDui.Destroy()
     if duiObject then DestroyDui(duiObject) end
     duiObject, runtimeTxd, runtimeTexture = nil, nil, nil
     replacementBound = false
+    if sourceTextureLoaded then
+        SetStreamedTextureDictAsNoLongerNeeded(CapsuleDuiConfig.textureDictionary)
+        sourceTextureLoaded = false
+    end
 end
 
 CreateThread(function()
@@ -345,8 +396,13 @@ CreateThread(function()
                 end
             end
             if closest and closestId ~= nearestStationId then
-                nearestStation, nearestStationId = closest, closestId
-                sendStation(closest, 'station')
+                -- Only cache the station after delivery succeeds. Otherwise a
+                -- first-load DUI timeout would prevent this loop from retrying.
+                if sendStation(closest, 'station') then
+                    nearestStation, nearestStationId = closest, closestId
+                end
+            elseif not closest then
+                nearestStation, nearestStationId = nil, nil
             end
             Wait(500)
         end

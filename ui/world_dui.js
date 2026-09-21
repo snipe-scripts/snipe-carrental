@@ -9,6 +9,7 @@ const state = {
     vehicles: [],
     selected: 0,
     payment: 'cash',
+    color: { r: 235, g: 238, b: 240 },
     busy: false,
 };
 
@@ -80,6 +81,20 @@ function choose(offset) {
     renderRental();
 }
 
+function selectColor(button) {
+    if (!button || state.busy) return;
+    state.color = {
+        r: Number(button.dataset.r) || 0,
+        g: Number(button.dataset.g) || 0,
+        b: Number(button.dataset.b) || 0,
+    };
+    document.querySelectorAll('[data-r][data-g][data-b]').forEach((item) => {
+        const selected = item === button;
+        item.classList.toggle('selected', selected);
+        item.setAttribute('aria-pressed', String(selected));
+    });
+}
+
 window.addEventListener('message', ({ data }) => {
     if (!data || !data.action) return;
     if (data.action === 'station') {
@@ -91,6 +106,7 @@ window.addEventListener('message', ({ data }) => {
         applyStation(data);
         state.selected = Math.min(state.selected, Math.max(0, state.vehicles.length - 1));
         state.payment = 'cash';
+        selectColor(document.querySelector('.paint.selected') || document.querySelector('.paint'));
         state.busy = false;
         document.querySelectorAll('[data-payment]').forEach((button) => {
             button.classList.toggle('selected', button.dataset.payment === state.payment);
@@ -101,6 +117,7 @@ window.addEventListener('message', ({ data }) => {
 
 document.getElementById('previous').addEventListener('click', () => choose(-1));
 document.getElementById('next').addEventListener('click', () => choose(1));
+document.querySelectorAll('.paint').forEach((button) => button.addEventListener('click', () => selectColor(button)));
 document.querySelectorAll('[data-payment]').forEach((button) => button.addEventListener('click', () => {
     if (state.busy) return;
     state.payment = button.dataset.payment;
@@ -118,6 +135,7 @@ rentButton.addEventListener('click', async () => {
         vehicleId: vehicle.id,
         model: vehicle.model,
         payment: state.payment,
+        color: state.color,
     });
     state.busy = false;
     rentButton.disabled = false;

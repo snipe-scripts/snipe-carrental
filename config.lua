@@ -13,6 +13,7 @@ Config.AdminGroups = { 'god', 'admin' }
 -- presented as a customer pricing choice.
 Config.RentalDurationMinutes = 60
 Config.PaymentAccounts = { cash = true, bank = true }
+Config.DefaultRentalVehicleColor = { r = 235, g = 238, b = 240 }
 
 Config.MaxActiveRentalsPerPlayer = 1
 Config.MaxActiveRentalsPerStation = 1

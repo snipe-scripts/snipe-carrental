@@ -40,7 +40,7 @@ World placement deliberately releases NUI focus. Press `E` to confirm a terminal
 1. Staff place the freestanding rental tablet.
 2. Staff place the linked capsule platform and choose its light-strip color.
 3. Staff add vehicles with a model, display name, and one flat price. A car parked on the platform can also be captured before the station's first save.
-4. Customers approach the tablet, press `E`, and choose a vehicle and cash or bank payment on its world-space DUI.
+4. Customers approach the tablet, press `E`, and choose a vehicle, body color, and cash or bank payment on its world-space DUI.
 5. The server validates and charges the catalog price. The car is created hidden and networked before a synchronized 14-second capsule cycle starts. The enclosure rises, opens to reveal the car, rolls it six metres clear of the deck, then closes and retracts underground.
 6. For a return, the same anchored cycle encloses the parked rental and deletes it only after the side shell has completely covered it.
 

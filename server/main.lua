@@ -89,6 +89,15 @@ local function normalizeCoords(value)
     return { x = x, y = y, z = z, w = w }
 end
 
+local function normalizeVehicleColor(value)
+    if type(value) ~= 'table' then return nil end
+    local r = finiteNumber(value.r, 0, 255)
+    local g = finiteNumber(value.g, 0, 255)
+    local b = finiteNumber(value.b, 0, 255)
+    if not r or not g or not b then return nil end
+    return { r = math.floor(r), g = math.floor(g), b = math.floor(b) }
+end
+
 local function distance(a, b)
     local dx, dy, dz = a.x - b.x, a.y - b.y, a.z - b.z
     return math.sqrt(dx * dx + dy * dy + dz * dz)
@@ -231,6 +240,7 @@ local function publicRental(rental)
         netId = rental.netId,
         payment = rental.payment,
         pricing = rental.pricing,
+        color = rental.color,
     }
 end
 
@@ -360,6 +370,9 @@ local function createRental(source, payload)
     end
     local vehicle = findVehicle(station, payload.vehicleId or payload.model)
     if not vehicle then return result(false, 'vehicle_unavailable', 'That vehicle is unavailable.') end
+    local vehicleColor = normalizeVehicleColor(payload.color)
+        or normalizeVehicleColor(Config.DefaultRentalVehicleColor)
+        or { r = 235, g = 238, b = 240 }
     local duration = math.max(1, math.floor(tonumber(Config.RentalDurationMinutes) or 60))
     local payment = cleanString(payload.payment, 8)
     if not payment or not Config.PaymentAccounts[payment] then
@@ -391,6 +404,7 @@ local function createRental(source, payload)
         duration = duration,
         payment = payment,
         pricing = pricing,
+        color = vehicleColor,
         status = 'awaiting_spawn',
         createdAt = now,
         startedAt = now,

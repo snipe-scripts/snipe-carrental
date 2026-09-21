@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Capsule rental terminal</title>
-    <link rel="stylesheet" href="world_dui.css?v=2">
+    <link rel="stylesheet" href="world_dui.css?v=3">
 </head>
 <body>
     <main id="screen">
@@ -34,6 +34,19 @@
                 <div><b id="vehicle-position">1 / 1</b><span>AVAILABLE VEHICLES</span></div>
                 <button id="next" type="button" aria-label="Next vehicle">›</button>
             </div>
+            <fieldset class="paint-field">
+                <legend>VEHICLE COLOR</legend>
+                <div class="paint-options" role="radiogroup" aria-label="Vehicle color">
+                    <button class="paint selected" data-r="235" data-g="238" data-b="240" type="button" aria-label="White" aria-pressed="true" style="--paint:#ebeef0"></button>
+                    <button class="paint" data-r="24" data-g="27" data-b="29" type="button" aria-label="Black" aria-pressed="false" style="--paint:#181b1d"></button>
+                    <button class="paint" data-r="126" data-g="132" data-b="136" type="button" aria-label="Silver" aria-pressed="false" style="--paint:#7e8488"></button>
+                    <button class="paint" data-r="183" data-g="47" data-b="42" type="button" aria-label="Red" aria-pressed="false" style="--paint:#b72f2a"></button>
+                    <button class="paint" data-r="202" data-g="105" data-b="38" type="button" aria-label="Orange" aria-pressed="false" style="--paint:#ca6926"></button>
+                    <button class="paint" data-r="208" data-g="177" data-b="35" type="button" aria-label="Yellow" aria-pressed="false" style="--paint:#d0b123"></button>
+                    <button class="paint" data-r="43" data-g="102" data-b="70" type="button" aria-label="Green" aria-pressed="false" style="--paint:#2b6646"></button>
+                    <button class="paint" data-r="46" data-g="83" data-b="145" type="button" aria-label="Blue" aria-pressed="false" style="--paint:#2e5391"></button>
+                </div>
+            </fieldset>
             <fieldset>
                 <legend>PAYMENT METHOD</legend>
                 <div class="payments">
@@ -49,6 +62,6 @@
         <div id="toast" class="toast" hidden></div>
         <footer><span>ONE SIMPLE PRICE</span><span>CASH · BANK</span></footer>
     </main>
-    <script src="world_dui.js?v=2"></script>
+    <script src="world_dui.js?v=3"></script>
 </body>
 </html>

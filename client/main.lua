@@ -241,6 +241,13 @@ function RentalClient.SpawnRental(authorization)
     pcall(function() Entity(vehicle).state:set('snipeRentalCapsuleHidden', true, true) end)
     SetVehicleNumberPlateText(vehicle, auth.plate)
     if auth.properties and lib.setVehicleProperties then lib.setVehicleProperties(vehicle, auth.properties) end
+    if type(auth.color) == 'table' then
+        local r = math.floor(tonumber(auth.color.r) or 235)
+        local g = math.floor(tonumber(auth.color.g) or 238)
+        local b = math.floor(tonumber(auth.color.b) or 240)
+        SetVehicleCustomPrimaryColour(vehicle, r, g, b)
+        SetVehicleCustomSecondaryColour(vehicle, r, g, b)
+    end
     -- The server-issued plate wins over any captured showroom properties.
     SetVehicleNumberPlateText(vehicle, auth.plate)
     groundVehicleOnPlatform(vehicle, location)

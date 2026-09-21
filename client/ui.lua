@@ -352,6 +352,7 @@ RegisterNUICallback('rentVehicle', function(data, cb)
         vehicleId = data.vehicleId,
         model = data.model,
         payment = data.payment,
+        color = data.color,
     })
     if not responseOk(response) then
         RentalClient.Notify(response and response.message or 'Rental could not be created.', 'error')

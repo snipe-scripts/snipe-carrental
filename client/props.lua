@@ -107,6 +107,7 @@ function RentalWorld.create(station, preview)
             assembly.entities[#assembly.entities + 1] = entity
             assembly.roles.coords = entity
             SetObjectTextureVariation(entity, RentalWorld.colorIndex(station.color))
+            if CapsuleDui and CapsuleDui.TerminalReady then CapsuleDui.TerminalReady() end
         else
             recordFailure(assembly, 'terminal', models.tablet, reason)
         end

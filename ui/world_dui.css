@@ -51,6 +51,11 @@ h1 { margin: 7px 0 0; font-size: 48px; line-height: 1; letter-spacing: -2.5px; }
 .selector span { margin-top: 3px; color: var(--muted); font-size: 8px; letter-spacing: 1px; }
 fieldset { margin: 0 0 17px; padding: 0; border: 0; }
 legend { margin-bottom: 9px; color: var(--muted); font-size: 9px; letter-spacing: 1px; }
+.paint-field { margin-bottom: 14px; }
+.paint-options { display: grid; grid-template-columns: repeat(8, 1fr); gap: 7px; }
+.paint { height: 34px; padding: 0; border: 1px solid rgba(255,255,255,.16); border-radius: 3px; background: var(--paint); cursor: pointer; }
+.paint:hover { border-color: rgba(255,255,255,.65); }
+.paint.selected { border-color: var(--accent); box-shadow: inset 0 0 0 2px #0e1514, inset 0 0 0 3px var(--accent); }
 .payments { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
 .payment { height: 48px; border: 1px solid var(--line); border-radius: 3px; background: var(--surface); color: var(--muted); cursor: pointer; font-size: 11px; }
 .payment.selected, .payment:hover { border-color: var(--accent); background: rgba(23, 215, 196, .08); color: var(--text); }
